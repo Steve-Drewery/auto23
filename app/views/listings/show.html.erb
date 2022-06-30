@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -6,7 +6,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.rtl.min.css" integrity="sha384-dc2NSrAXbAkjrdm9IYrX10fQq9SDG6Vjz7nQVKdKcJl3pC+k37e7qJR5MVSCS+wR" crossorigin="anonymous">
-<div class="container">
+
 <h2><%= @listing.title %></h2>
   <div class="card mb-3" style="width: 60rem;">
   <div class="row g-0">
@@ -29,7 +29,7 @@
       <p>
 
 <% elsif current_user && !@listing.sold  %>
-<button type="submit" class="btn btn-secondary" data-stripe="payment">Buy ticket <%= number_to_currency(@listing.price) %></button>
+<button type="submit" class="btn btn-success" data-stripe="payment">Buy ticket <%= number_to_currency(@listing.price) %></button>
 
 <script src="https://js.stripe.com/v3/"></script>
 
@@ -49,6 +49,5 @@
     </div>
   <%# </div> %>
 
-<%= link_to 'Edit', edit_listing_path(@listing), class: "btn btn-secondary" %>
-<%= link_to 'Back', listings_path, class: "btn btn-secondary" %>
-</div>
+<%= link_to 'Edit', edit_listing_path(@listing), class: "btn btn-secondary btn text-bg-dark" %>
+<%= link_to 'Back', listings_path, class: "btn btn-secondary btn text-bg-dark" %>

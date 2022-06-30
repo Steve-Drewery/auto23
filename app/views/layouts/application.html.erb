@@ -18,11 +18,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
 
     <%= render 'shared/nav' %>
+    <div class=container>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <br/>
+      <% if notice %>
+        <%= render 'layouts/alerts' %>
+      <% end %>
+
     <%= yield %>
-
+    </div>
     <% if Rails.env.development? %>
       <% console %>
     <% end %>
