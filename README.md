@@ -10,7 +10,7 @@ https://autopartsmarketplace.herokuapp.com/
 
 ## Github Link
 
-https://github.com/Steve-Drewery/autoparts
+https://github.com/Steve-Drewery/auto23
 
 
 ## Description
