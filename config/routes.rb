@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  get 'categories/body_parts'
+  get 'categories/car_audio'
+  get 'categories/cooling'
+  get 'categories/driveline'
+  get 'categories/electrical'
+  get 'categories/engine'
+  get 'categories/filters'
+  get 'categories/fuel_ignition'
+  get 'categories/steering'
+  get 'categories/suspension'
+  get 'search', to: "listings#search"
   resources :payments
   get 'orders/success', to: 'orders#success'
   get 'orders/bought'

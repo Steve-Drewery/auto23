@@ -8,7 +8,7 @@
 
 <nav class="navbar navbar-expand-lg bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand text-bg-dark p-3" href="/">Autoparts Market</a>
+    <a class="navbar-brand text-bg-dark p-3" href="/"><img src="/assets/favicon.ico"> Autoparts Market</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -43,10 +43,47 @@
         </li>
         <% end %>
         </form>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <form class="d-flex" action="/search">
+        <input class="form-control me-2" name="q" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>
   </div>
 </nav>
+<nav class="navbar bg-dark">
+  <div class="container-fluid">
+      <ul class="navbar-nav me-auto mb-lg-0 d-flex flex-row">
+        <li class="nav-item">
+          <a class="nav-link text-bg-dark p-3" href="/">Body Parts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-bg-dark p-3" href="/listings">Car Audio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-bg-dark p-3" href="/">Cooling</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-bg-dark p-3" href="/listings">Driveline</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-bg-dark p-3" href="/">Electrical</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-bg-dark p-3" href="/listings">Engine</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-bg-dark p-3" href="/">Filters</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-bg-dark p-3" href="/listings">Fuel/Ignition</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-bg-dark p-3" href="/">Steering</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-bg-dark p-3" href="/listings">Suspension</a>
+        </li>
+      </ul>
+  </div>
+</nav>
+

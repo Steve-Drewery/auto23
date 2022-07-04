@@ -90,8 +90,10 @@ class ListingsController < ApplicationController
       buyer_id: current_user.id
     )
     @listing.update(sold: true)
+  end
 
-    redirect_to order_success_path
+  def search
+    @listings = Listing.where("title LIKE ?", "%" + params[:q] + "%")
   end
 
   private
