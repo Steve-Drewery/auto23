@@ -96,6 +96,10 @@ class ListingsController < ApplicationController
     @listings = Listing.where("title LIKE ?", "%" + params[:q] + "%")
   end
 
+  def category
+    @listings = Listing.where("category_id LIKE ?", "%" + params[:q] + "%")
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_listing

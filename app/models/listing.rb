@@ -5,9 +5,9 @@ class Listing < ApplicationRecord
   has_one_attached :picture
 
   enum condition: {
-    last_legs: 1,
-    worn_out: 2,
-    used_once: 3,
-    fresh_and_shiny: 4
+    needs_rebuilding: 1,
+    a_bit_hows_it_going: 2,
+    used: 3,
+    brand_new: 4
   }
 end

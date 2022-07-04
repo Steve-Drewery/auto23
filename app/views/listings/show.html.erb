@@ -21,7 +21,7 @@
       <p class="card-text"><h3>Description: </h3><%= @listing.description %></p>
       <p class="card-text"><h3>Condition: </h3><%= @listing.condition %></p>
       <p class="card-text"><h3>Price: </h3><%= number_to_currency(@listing.price) %></p>
-      <p class="card-text"><h3>User: </h3><%= @listing.user_id %></p>
+      <p class="card-text"><h3>User: </h3><%= @listing.user.username %></p>
       <% if @listing.sold %>
       <p class="card-text"><small class="text-muted">Sold!</small></p>
       <% elsif current_user.id == @listing.user_id %>
