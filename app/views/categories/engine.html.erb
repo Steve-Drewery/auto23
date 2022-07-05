@@ -1,2 +1,52 @@
-<h1>Categories#engine</h1>
-<p>Find me in app/views/categories/engine.html.erb</p>
+
+
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.rtl.min.css" integrity="sha384-dc2NSrAXbAkjrdm9IYrX10fQq9SDG6Vjz7nQVKdKcJl3pC+k37e7qJR5MVSCS+wR" crossorigin="anonymous">
+
+
+
+<h1>Engine</h1>
+<table class="table table-striped table-hover table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Condition</th>
+      <th>Price</th>
+      <th>Sold</th>
+      <th>User</th>
+      <th>Category</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+    <% @listings.each do |listing| %>
+      <tr>
+        <td><%= listing.title %></td>
+        <td><%= listing.description %></td>
+        <td><%= listing.condition %></td>
+        <td><%= listing.price %></td>
+        <td><%= listing.sold %></td>
+        <td><%= listing.user_id %></td>
+        <td><%= listing.category_id %></td>
+        <td><%= link_to 'Show', listing, class: "btn btn-outline-secondary" %></td>
+        <% if current_user && current_user.id == listing.user_id %>
+          <td><%= link_to 'Edit', edit_listing_path(listing), class: "btn btn-outline-secondary " %></td>
+          <td><%= link_to 'Destroy', listing, class: "btn btn-outline-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Listing', new_listing_path, class: "btn btn-secondary btn text-bg-dark" %>
+

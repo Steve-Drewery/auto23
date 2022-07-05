@@ -1,6 +1,5 @@
 class CategoriesController < ApplicationController
   def body_parts
-    @listings.category
   end
 
   def car_audio
