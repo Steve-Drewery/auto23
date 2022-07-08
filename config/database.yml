@@ -82,5 +82,5 @@ test:
 production:
   <<: *default
   database: auto23_production
-  username: auto23
-  password: <%= ENV['AUTO23_DATABASE_PASSWORD'] %>
+  # username: auto23
+  # password: <%= ENV['AUTO23_DATABASE_PASSWORD'] %>
