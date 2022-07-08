@@ -1,3 +1,5 @@
+# updates orders for users history of bought/sold orders
+
 class OrdersController < ApplicationController
   def success
   end

@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  # implement category search function from nav bar?
   def body_parts
   end
 

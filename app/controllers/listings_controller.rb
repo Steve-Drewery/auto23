@@ -1,6 +1,7 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: %i[ show edit update destroy place_order]
   before_action :set_form_vars
+  # if user not logged in, can only see index page
   before_action :authenticate_user!, except: [:index]
 
   
@@ -10,7 +11,7 @@ class ListingsController < ApplicationController
     @listings = Listing.all
   end
 
-  # GET /listings/1 or /listings/1.json
+  # set stripe data
   def show
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
@@ -45,7 +46,9 @@ class ListingsController < ApplicationController
 
   # POST /listings or /listings.json
   def create
+    # set listing params
     @listing = Listing.new(listing_params)
+    # set as current users listing
     @listing.user = current_user
 
     respond_to do |format|
@@ -88,6 +91,7 @@ class ListingsController < ApplicationController
   end
 
   def place_order
+    # post buying item path to add to bought/sold and update listing to sold. Not yet implemented as unsure how to utilize stripe confirmed payment.
     Order.create(
       listing_id: @listing.id,
       seller_id: @listing.user.id,
@@ -98,10 +102,12 @@ class ListingsController < ApplicationController
     redirect_to order_success_path
   end
 
+  # search function only works if exact title is searched for, need further research.
   def search
     @listings = Listing.where("title LIKE ?", "%" + params[:q] + "%")
   end
 
+  # possible sort function for categories?
   def category
     @listings = Listing.where("category.name LIKE ?", "%" + params[:q] + "%")
   end
