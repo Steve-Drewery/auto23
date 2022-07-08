@@ -3,6 +3,8 @@ class ListingsController < ApplicationController
   before_action :set_form_vars
   before_action :authenticate_user!, except: [:index]
 
+  
+
   # GET /listings or /listings.json
   def index
     @listings = Listing.all
@@ -16,6 +18,7 @@ class ListingsController < ApplicationController
       line_items: [{
         name: @listing.title,
         amount: (@listing.price * 100).to_i,
+        images: [@listing.picture],
         currency: 'aud',
         quantity: 1,
       }],
@@ -24,7 +27,8 @@ class ListingsController < ApplicationController
           user_id: @current_user.id
         }
       },
-      success_url: "#{root_url}orders/success?eventId=#{@listing.id}",
+      
+      success_url: "#{root_url}orders/success?listingId=#{@listing.id}",
       cancel_url: "#{root_url}listings/#{@listing.id}"
     )
     @session_id = session.id
@@ -90,6 +94,8 @@ class ListingsController < ApplicationController
       buyer_id: current_user.id
     )
     @listing.update(sold: true)
+
+    redirect_to order_success_path
   end
 
   def search
@@ -97,8 +103,10 @@ class ListingsController < ApplicationController
   end
 
   def category
-    @listings = Listing.where("category_id LIKE ?", "%" + params[:q] + "%")
+    @listings = Listing.where("category.name LIKE ?", "%" + params[:q] + "%")
   end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

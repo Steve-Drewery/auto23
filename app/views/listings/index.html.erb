@@ -18,8 +18,6 @@
       <th>Description</th>
       <th>Condition</th>
       <th>Price</th>
-      <th>Sold</th>
-      <th>User</th>
       <th>Category</th>
       <th colspan="3"></th>
     </tr>
@@ -29,14 +27,11 @@
   <tbody>
     <% @listings.each do |listing| %>
       <tr>
-        <td><%= listing.title %></td>
+        <td><%= link_to listing.title, listing,  class: "btn btn-outline-secondary"%></td>
         <td><%= listing.description %></td>
-        <td><%= listing.condition %></td>
+        <td><%= format_condition(listing.condition) %></td>
         <td><%= listing.price %></td>
-        <td><%= listing.sold %></td>
-        <td><%= listing.user_id %></td>
-        <td><%= listing.category_id %></td>
-        <td><%= link_to 'Show', listing, class: "btn btn-outline-secondary" %></td>
+        <td><%= listing.category.name %></td>
         <% if current_user && current_user.id == listing.user_id %>
           <td><%= link_to 'Edit', edit_listing_path(listing), class: "btn btn-outline-secondary " %></td>
           <td><%= link_to 'Destroy', listing, class: "btn btn-outline-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>

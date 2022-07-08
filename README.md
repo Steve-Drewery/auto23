@@ -74,9 +74,13 @@ MVC
 
 ## Third-party Services
 
-Stripe
-Devise
-Ultrahook
+- Stripe
+In order to allow payment options within the marketplace Stripe has been implemented, allowing users to easily pay by card online. 
+
+- Devise
+In order to 
+
+- Ultrahook
 
 ## Models and their Relationships
 

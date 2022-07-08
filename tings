@@ -1,0 +1,15 @@
+                    List of relations
+ Schema |              Name              | Type  | Owner 
+--------+--------------------------------+-------+-------
+ public | action_text_rich_texts         | table | steve
+ public | active_storage_attachments     | table | steve
+ public | active_storage_blobs           | table | steve
+ public | active_storage_variant_records | table | steve
+ public | ar_internal_metadata           | table | steve
+ public | categories                     | table | steve
+ public | listings                       | table | steve
+ public | orders                         | table | steve
+ public | schema_migrations              | table | steve
+ public | users                          | table | steve
+(10 rows)
+

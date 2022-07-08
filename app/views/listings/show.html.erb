@@ -6,12 +6,17 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.rtl.min.css" integrity="sha384-dc2NSrAXbAkjrdm9IYrX10fQq9SDG6Vjz7nQVKdKcJl3pC+k37e7qJR5MVSCS+wR" crossorigin="anonymous">
-
+<style>
+img {
+  width: 300px;
+  height: auto;
+}
+</style>
 
 <h2><%= @listing.title %></h2>
   <div class="card mb-3" style="width: 60rem;">
   <div class="row g-0">
-    <div class="col-md-4">
+    <div class="col-md-4 ">
     <div>
         <%= image_tag @listing.picture, alt: @listing.title if @listing.picture.attached? %>
       </div>
@@ -20,7 +25,7 @@
     
     <div class="card-body">
       <p class="card-text"><h3>Description: </h3><%= @listing.description %></p>
-      <p class="card-text"><h3>Condition: </h3><%= @listing.condition %></p>
+      <p class="card-text"><h3>Condition: </h3><%= format_condition(@listing.condition) %></p>
       <p class="card-text"><h3>Price: </h3><%= number_to_currency(@listing.price) %></p>
       <p class="card-text"><h3>User: </h3><%= @listing.user.username %></p>
       <% if @listing.sold %>
@@ -49,6 +54,8 @@
   </div>
     </div>
 <% if current_user && current_user.id == @listing.user_id %>
+<%= link_to 'Destroy', @listing, class: "btn btn-outline-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
 <%= link_to 'Edit', edit_listing_path(@listing), class: "btn btn-secondary btn text-bg-dark" %>
 <% end %>
 <%= link_to 'Back', listings_path, class: "btn btn-secondary btn text-bg-dark" %>
+

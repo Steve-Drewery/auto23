@@ -14,3 +14,7 @@ ActiveStorage.start()
 
 require("trix")
 require("@rails/actiontext")
+
+$("tr[data-link]").click(function() {
+    window.location = $(this).data("link")
+  })

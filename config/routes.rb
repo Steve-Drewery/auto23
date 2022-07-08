@@ -5,9 +5,12 @@ Rails.application.routes.draw do
   get 'orders/bought'
   get 'orders/sold'
   get "/payments/success", to: "payments#success"
-  resources :listings
+  resources :listings do
+    resources :comments
+    resources :categories
+  end
   devise_for :users
-  root 'pages#home'
+  root 'listings#home'
   post "listings/:id/order", to: "listings#place_order", as: "place_order"
   post "/payments/webhook", to: "payments#webhook"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
